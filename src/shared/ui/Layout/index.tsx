@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { Header } from "@/widgets/Header";
-import { Footer } from "@/widgets/Footer";
+import { Header } from "../../../widgets/Header";
+import { Footer } from "../../../widgets/Footer";
 import { Outlet } from "react-router-dom";
 
 export function Layout() {
@@ -14,7 +14,6 @@ export function Layout() {
       }}
     >
       <Header />
-
       <Box
         component="main"
         sx={{

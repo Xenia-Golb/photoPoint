@@ -1,7 +1,7 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
-import { HomePage } from "../../pages/Home";
-import { CartPage } from "../../pages/Cart";
-import { ErrorPage } from "../../shared/ui/ErrorPage";
+import { createBrowserRouter, Navigate, useRoutes } from "react-router-dom";
+import { HomePage } from "../../pages";
+import { CartPage } from "../../pages";
+import { ErrorPage } from "../../pages";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +12,10 @@ export const router = createBrowserRouter([
   {
     path: "/cart",
     element: <CartPage />,
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
 
