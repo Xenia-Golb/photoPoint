@@ -3,8 +3,8 @@ import {
   selectCartTotalQuantity,
   selectCartTotalAmount,
   clearCart,
-} from "../app/store/slices/cartSlice";
-import { useAppDispatch, useAppSelector } from "../app/store/hooks";
+} from "../app/redux/slices/cartSlice";
+import { useAppDispatch, useAppSelector } from "../app/redux/hooks";
 
 export const CartManagement = () => {
   const totalQuantity = useAppSelector(selectCartTotalQuantity);

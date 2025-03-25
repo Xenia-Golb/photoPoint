@@ -1,6 +1,6 @@
 import { Box, Typography, Container } from "@mui/material";
-import { selectCartItems } from "../app/store/slices/cartSlice";
-import { useAppSelector } from "../app/store/hooks";
+import { selectCartItems } from "../app/redux/slices/cartSlice";
+import { useAppSelector } from "../app/redux/hooks";
 import { CartItem } from "../entities";
 import { CartManagement } from "../features/index";
 

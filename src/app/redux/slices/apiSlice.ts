@@ -1,21 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
-interface ProductsParams {
-  limit?: number;
-  sort?: "asc" | "desc";
-  category?: string;
-}
+import {
+  Product,
+  ProductsParams,
+} from "../../../entities/product/Product.types";
 export const fakeStoreApi = createApi({
   reducerPath: "fakeStoreApi",
   baseQuery: fetchBaseQuery({
@@ -26,7 +13,6 @@ export const fakeStoreApi = createApi({
   }),
   tagTypes: ["Product"],
   endpoints: (builder) => ({
-    // Получение всех товаров (с возможностью фильтрации)
     getProducts: builder.query<Product[], ProductsParams | void>({
       query: (params) => {
         const queryParams = new URLSearchParams();
@@ -51,6 +37,14 @@ export const fakeStoreApi = createApi({
             ]
           : ["Product"],
     }),
+
+    getCategories: builder.query<string[], void>({
+      query: () => "/products/categories",
+      transformResponse: (response: string[]) =>
+        response.map(
+          (category) => category.charAt(0).toUpperCase() + category.slice(1)
+        ),
+    }),
   }),
 });
-export const { useGetProductsQuery } = fakeStoreApi;
+export const { useGetProductsQuery, useGetCategoriesQuery } = fakeStoreApi;

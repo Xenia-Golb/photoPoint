@@ -7,9 +7,9 @@ import {
 } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { Product } from "../../app/store/slices/apiSlice";
-import { useAppDispatch } from "../../app/store/hooks";
-import { addItemToCart } from "../../app/store/slices/cartSlice";
+import { Product } from "./Product.types";
+import { useAppDispatch } from "../../app/redux/hooks";
+import { addItemToCart } from "../../app/redux/slices/cartSlice";
 
 interface ProductCardProps {
   product: Product;

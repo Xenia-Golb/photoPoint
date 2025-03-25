@@ -8,11 +8,11 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CartItem as CartItemType } from "./CartItem.types";
-import { useAppDispatch } from "../../app/store/hooks";
+import { useAppDispatch } from "../../app/redux/hooks";
 import {
   removeItemFromCart,
   updateItemQuantity,
-} from "../../app/store/slices/cartSlice";
+} from "../../app/redux/slices/cartSlice";
 
 interface CartItemProps {
   item: CartItemType;

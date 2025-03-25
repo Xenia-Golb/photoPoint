@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { fakeStoreApi } from "../store/slices/apiSlice";
+import { fakeStoreApi } from "./slices/apiSlice";
 import { filterSlice } from "./slices/filterSlice";
 import { cartSlice } from "./slices/cartSlice";
 
