@@ -1,17 +1,8 @@
 import { AppBar, Toolbar, Typography, Button, Badge, Box } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link, useNavigate } from "react-router-dom";
-// import { useAppSelector } from "@/app/store/hooks";
-// import { selectCartCount } from "@/app/store/slices/cartSlice";
-// import SearchIcon from "@mui/icons-material/Search";
-// import { useState } from "react";
-// import { SearchModal } from "@/features/Search";
+import { Link } from "react-router-dom";
 
 export function Header() {
-  // const cartCount = useAppSelector(selectCartCount);
-  const navigate = useNavigate();
-  // const [searchOpen, setSearchOpen] = useState(false);
-
   return (
     <AppBar
       position="sticky"

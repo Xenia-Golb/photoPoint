@@ -8,12 +8,26 @@ import {
 import { AddShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { Product } from "../../app/store/slices/apiSlice";
+import { useAppDispatch } from "../../app/store/hooks";
+import { addItemToCart } from "../../app/store/slices/cartSlice";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(
+      addItemToCart({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+      })
+    );
+  };
   return (
     <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <CardMedia
@@ -52,6 +66,7 @@ export function ProductCard({ product }: ProductCardProps) {
           size="small"
           startIcon={<AddShoppingCart />}
           sx={{ whiteSpace: "nowrap" }}
+          onClick={handleAddToCart}
         >
           В корзину
         </Button>

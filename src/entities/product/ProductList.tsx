@@ -7,7 +7,7 @@ export function ProductList() {
     isLoading,
     isError,
   } = useGetProductsQuery({
-    limit: 10,
+    limit: 18,
     sort: "desc",
   });
 
