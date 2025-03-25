@@ -1,12 +1,7 @@
 import { Layout } from "./shared/ui/Layout";
-import { Router } from "./app/router";
 
 function App() {
-  return (
-    <Layout>
-      <Router />
-    </Layout>
-  );
+  return <Layout></Layout>;
 }
 
 export default App;
