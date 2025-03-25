@@ -1,15 +1,31 @@
-import { ProductCard } from "@/entities/Product/ui/ProductCard";
-import { Grid2 } from "@mui/material";
+import { useGetProductsQuery } from "../../app/store/slices/apiSlice";
+import { ProductCard } from "../index";
+
 export function ProductList() {
-  const { data: products } = useGetProductsQuery();
+  const {
+    data: products,
+    isLoading,
+    isError,
+  } = useGetProductsQuery({
+    limit: 10,
+    sort: "desc",
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error loading products</div>;
+  if (!products || products.length === 0) return <div>No products found</div>;
 
   return (
-    <Grid2 container spacing={3}>
-      {products?.map((product) => (
-        <Grid2 item xs={12} sm={6} md={4} lg={3} key={product.id}>
-          <ProductCard product={product} />
-        </Grid2>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+        gap: "20px",
+      }}
+    >
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
       ))}
-    </Grid2>
+    </div>
   );
 }

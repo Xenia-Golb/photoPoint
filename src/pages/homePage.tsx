@@ -1,3 +1,9 @@
+import { ProductList } from "../entities";
+
 export function HomePage() {
-  return <>home page</>;
+  return (
+    <>
+      <ProductList />
+    </>
+  );
 }
